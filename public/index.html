@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureVault | Private Documents</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="brand">Secure<span>Vault</span></div>
+        <div class="nav-right">
+            <span id="user-label"></span>
+            <button id="logout-btn" class="btn btn-outline hidden">Logout</button>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Authentication section -->
+        <section id="auth-section" class="auth-card">
+            <div class="card-heading">
+                <h1>Welcome to SecureVault</h1>
+                <p>Your private document storage space.</p>
+            </div>
+
+            <div class="tabs">
+                <button id="login-tab" class="tab active">Login</button>
+                <button id="register-tab" class="tab">Register</button>
+            </div>
+
+            <form id="auth-form">
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    minlength="3"
+                    maxlength="30"
+                    required
+                    autocomplete="username"
+                    placeholder="Enter username"
+                >
+
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    autocomplete="current-password"
+                    placeholder="Enter password"
+                >
+
+                <p id="password-hint" class="hint hidden">
+                    Password must contain at least 10 characters.
+                </p>
+
+                <button type="submit" id="auth-submit" class="btn btn-primary">
+                    Login
+                </button>
+
+                <p id="auth-message" class="message" role="alert"></p>
+            </form>
+        </section>
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="hidden">
+
+            <div class="welcome">
+                <h1>Your Dashboard</h1>
+                <p>Manage your private documents securely.</p>
+            </div>
+
+            <div class="document-form card">
+                <h2>Create a document</h2>
+
+                <form id="document-form">
+                    <label for="document-title">Document title</label>
+                    <input
+                        type="text"
+                        id="document-title"
+                        maxlength="80"
+                        required
+                        placeholder="Enter document title"
+                    >
+
+                    <label for="document-body">Document content</label>
+                    <textarea
+                        id="document-body"
+                        maxlength="5000"
+                        required
+                        rows="5"
+                        placeholder="Write your document here..."
+                    ></textarea>
+
+                    <button type="submit" class="btn btn-primary">
+                        Save Document
+                    </button>
+
+                    <p id="document-message" class="message" role="alert"></p>
+                </form>
+            </div>
+
+            <div class="documents-section">
+                <h2>Your Documents</h2>
+                <div id="documents-list" class="documents-list">
+                    <p>Loading documents...</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>SecureVault &copy; 2026 | Private Document Management</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
